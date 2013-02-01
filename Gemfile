@@ -8,7 +8,24 @@ source "http://rubygems.org"
 group :development do
   gem "rspec", "~> 2.8.0"
   gem "rdoc", "~> 3.12"
-  gem "bundler", "~> 1.0.0"
+  gem "bundler", "~> 1.2"
   gem "jeweler", "~> 1.8.4"
-  gem "rcov", ">= 0"
+  #gem "rcov", ">= 0"
 end
+
+gem 'mharris_ext'
+
+gem 'evernote_oauth'
+gem 'dropbox-api'
+gem 'google_drive'
+
+gem 'lre'
+gem 'nokogiri'
+gem 'httparty'
+
+group :test do
+  gem 'vcr'
+  gem 'webmock'
+  gem 'json'
+end
+

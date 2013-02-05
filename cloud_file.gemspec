@@ -18,9 +18,11 @@ Gem::Specification.new do |s|
   ]
   s.files = [
     ".document",
+    ".lre",
     ".rspec",
     "Gemfile",
     "Gemfile.lock",
+    "Guardfile",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
@@ -28,13 +30,26 @@ Gem::Specification.new do |s|
     "cloud_file.gemspec",
     "lib/cloud_file.rb",
     "lib/cloud_file/address.rb",
+    "lib/cloud_file/cloud_uri.rb",
+    "lib/cloud_file/cloud_uri/dsl.rb",
     "lib/cloud_file/convertors.rb",
     "lib/cloud_file/copy.rb",
     "lib/cloud_file/file.rb",
+    "lib/cloud_file/outer_service.rb",
+    "lib/cloud_file/providers/dropbox.rb",
+    "lib/cloud_file/providers/evernote.rb",
+    "lib/cloud_file/providers/gdrive.rb",
+    "lib/cloud_file/providers/local.rb",
+    "lib/cloud_file/providers/memory.rb",
     "lib/cloud_file/service.rb",
     "lib/cloud_file/services.rb",
+    "spec/cassettes/most.yml",
     "spec/cloud_file_spec.rb",
-    "spec/spec_helper.rb"
+    "spec/cloud_uri_spec.rb",
+    "spec/providers/memory_spec.rb",
+    "spec/spec_helper.rb",
+    "vol/copy_test.rb",
+    "vol/gsub_test.rb"
   ]
   s.homepage = "http://github.com/mharris717/cloud_file"
   s.licenses = ["MIT"]

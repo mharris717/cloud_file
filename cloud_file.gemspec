@@ -25,6 +25,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "cloud_file.gemspec",
     "lib/cloud_file.rb",
     "lib/cloud_file/address.rb",
     "lib/cloud_file/convertors.rb",

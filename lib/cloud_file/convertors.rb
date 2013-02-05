@@ -41,7 +41,7 @@ module CloudFile
     end
 
     def find_path(source,target,prev=[])
-      raise "bad" if target.to_s == source.to_s
+      raise "bad source: #{source} target: #{target}" if target.to_s == source.to_s
       tos = list.select { |x| x[:from] == source.to_s }.map { |x| x[:to] }
       puts "tos #{tos.inspect}"
       if tos.any? { |x| x == target.to_s }

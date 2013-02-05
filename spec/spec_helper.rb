@@ -1,48 +1,104 @@
-$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
-$LOAD_PATH.unshift(File.dirname(__FILE__))
-require 'rspec'
-require 'cloud_file'
+require 'rubygems'
+require 'spork'
+#uncomment the following line to use spork with the debugger
+#require 'spork/ext/ruby-debug'
 
-Bundler.require(:test)
+Spork.prefork do
+  # Loading more in this block will cause your tests to run faster. However,
+  # if you change any configuration or code from libraries loaded here, you'll
+  # need to restart spork for it take effect.
 
-# Requires supporting files with custom matchers and macros, etc,
-# in ./support/ and its subdirectories.
-Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
+  $LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+  $LOAD_PATH.unshift(File.dirname(__FILE__))
+  require 'rspec'
+  require 'cloud_file'
 
-RSpec.configure do |config|
-  config.extend VCR::RSpec::Macros
-end
+  Bundler.require(:test)
 
-VCR.configure do |c|
-  c.cassette_library_dir = File.dirname(__FILE__) + '/cassettes'
-  c.hook_into :webmock # or :fakeweb
-end
+  # Requires supporting files with custom matchers and macros, etc,
+  # in ./support/ and its subdirectories.
+  Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
-class Tokens
-  class << self
-    fattr(:instance) { new }
-    def method_missing(sym,*args,&b)
-      instance.send(sym,*args,&b)
+  RSpec.configure do |config|
+    #config.extend VCR::RSpec::Macros
+  end
+
+  VCR.configure do |c|
+    c.cassette_library_dir = File.dirname(__FILE__) + '/cassettes'
+    c.hook_into :webmock # or :fakeweb
+    c.configure_rspec_metadata!
+  end
+
+  
+
+  RSpec::Matchers.define :parse_as_cloud_uri do
+    match do |act|
+      !!(act =~ CloudFile::CloudUri::Dsl.regex)
     end
   end
-  fattr(:raw) do
-    File.read("/code/explore/multiauth/lib/tokens.json")
-  end
-  fattr(:list) do
-    JSON.parse raw
-  end
-  def get_token(provider)
-    list.select { |x| x['provider'] == provider.to_s }.first['access_token']
-  end
-  def user
-    require 'ostruct'
-    res = OpenStruct.new(:identities => [])
-    list.each do |ident|
-      res.identities << OpenStruct.new(ident)
+
+  RSpec::Matchers.define :have_cloud_uri_matches do |exp|
+    match do |act|
+      @uri_matches = res = CloudFile::CloudUri::Dsl.new.matches(act)
+      res == exp.map { |x| x.to_s }
     end
-    res
+
+    failure_message_for_should do |act|
+      "Expected matches #{@uri_matches.inspect} to equal #{exp.inspect}"
+    end
+  end
+
+  RSpec::Matchers.define :have_cloud_uri_result do |exp|
+    match do |act|
+      @uri_result = res = CloudFile::CloudUri::Dsl.new.matches(act)
+      res == exp.map { |x| x.to_s }
+    end
+
+    failure_message_for_should do |act|
+      "Expected matches #{@uri_matches.inspect} to equal #{exp.inspect}"
+    end
   end
 end
+
+Spork.each_run do
+  load "lib/cloud_file.rb"
+  # This code will be run each time you run your specs.
+
+end
+
+# --- Instructions ---
+# Sort the contents of this file into a Spork.prefork and a Spork.each_run
+# block.
+#
+# The Spork.prefork block is run only once when the spork server is started.
+# You typically want to place most of your (slow) initializer code in here, in
+# particular, require'ing any 3rd-party gems that you don't normally modify
+# during development.
+#
+# The Spork.each_run block is run each time you run your specs.  In case you
+# need to load files that tend to change during development, require them here.
+# With Rails, your application modules are loaded automatically, so sometimes
+# this block can remain empty.
+#
+# Note: You can modify files loaded *from* the Spork.each_run block without
+# restarting the spork server.  However, this file itself will not be reloaded,
+# so if you change any of the code inside the each_run block, you still need to
+# restart the server.  In general, if you have non-trivial code in this file,
+# it's advisable to move it into a separate file so you can easily edit it
+# without restarting spork.  (For example, with RSpec, you could move
+# non-trivial code into a file spec/support/my_helper.rb, making sure that the
+# spec/support/* files are require'd from inside the each_run block.)
+#
+# Any code that is left outside the two blocks will be run during preforking
+# *and* during each_run -- that's probably not what you want.
+#
+# These instructions should self-destruct in 10 seconds.  If they don't, feel
+# free to delete them.
+
+
+
+
+
 
 #puts Tokens.list.inspect
 #puts Tokens.get_token('putio')

@@ -1,0 +1,307 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.dropbox.com/1/metadata/dropbox/test/abc.txt?
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - OAuth gem v0.4.7
+      Authorization:
+      - OAuth oauth_consumer_key="wncno17ygixgpy2", oauth_nonce="OFBcHhkkrDGXmi49aG7iOuqD2KmFRgPZ5yVXM2s",
+        oauth_signature="jAg%2FJcHyWvEazZFL5tKPZc7fFHQ%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1360086259", oauth_token="930fjrsep84llr7", oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 05 Feb 2013 17:44:18 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Expose-Headers:
+      - X-Dropbox-Metadata, Accept-Ranges, Content-Range
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Frame-Options:
+      - SAMEORIGIN
+      Access-Control-Allow-Origin:
+      - ! '*'
+    body:
+      encoding: US-ASCII
+      string: ! '{"revision": 201705, "rev": "313e900a671c6", "thumb_exists": false,
+        "bytes": 3, "modified": "Fri, 01 Feb 2013 22:13:52 +0000", "client_mtime":
+        "Fri, 01 Feb 2013 22:13:50 +0000", "path": "/test/abc.txt", "is_dir": false,
+        "icon": "page_white_text", "root": "dropbox", "mime_type": "text/plain", "size":
+        "3 bytes"}'
+    http_version: 
+  recorded_at: Tue, 05 Feb 2013 17:44:21 GMT
+- request:
+    method: post
+    uri: https://api.dropbox.com/1/media/dropbox/test/abc.txt
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - OAuth gem v0.4.7
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Authorization:
+      - OAuth oauth_consumer_key="wncno17ygixgpy2", oauth_nonce="wb890glIMOOXH3lAtaO2rdnh43QK6gs03dpzABc",
+        oauth_signature="0%2Fyjb%2B4xn7PXeMCjjTCnlHfoYXo%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1360086261", oauth_token="930fjrsep84llr7", oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 05 Feb 2013 17:44:19 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Expose-Headers:
+      - X-Dropbox-Metadata, Accept-Ranges, Content-Range
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Frame-Options:
+      - SAMEORIGIN
+      Access-Control-Allow-Origin:
+      - ! '*'
+    body:
+      encoding: US-ASCII
+      string: ! '{"url": "https://dl.dropbox.com/0/view/x8dwszaqm0c1cj1/test/abc.txt",
+        "expires": "Tue, 05 Feb 2013 21:44:19 +0000"}'
+    http_version: 
+  recorded_at: Tue, 05 Feb 2013 17:44:21 GMT
+- request:
+    method: get
+    uri: https://api-content.dropbox.com/1/files/dropbox/test/abc.txt?
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - OAuth gem v0.4.7
+      Authorization:
+      - OAuth oauth_consumer_key="wncno17ygixgpy2", oauth_nonce="hH6vd44NRY2f9bOL7vks1LpWgojhJCMPTMsdHZ5eqAc",
+        oauth_signature="CmTtznFChhVA6xwPv0f9UnLyOeI%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1360086261", oauth_token="930fjrsep84llr7", oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.2.6
+      Date:
+      - Tue, 05 Feb 2013 17:44:20 GMT
+      Content-Type:
+      - text/plain; charset=ascii
+      Content-Length:
+      - '3'
+      Connection:
+      - keep-alive
+      Access-Control-Expose-Headers:
+      - X-Dropbox-Metadata, Accept-Ranges, Content-Range
+      Accept-Ranges:
+      - bytes
+      X-Dropbox-Metadata:
+      - ! '{"revision": 201705, "rev": "313e900a671c6", "thumb_exists": false, "bytes":
+        3, "modified": "Fri, 01 Feb 2013 22:13:52 +0000", "client_mtime": "Fri, 01
+        Feb 2013 22:13:50 +0000", "path": "/test/abc.txt", "is_dir": false, "icon":
+        "page_white_text", "root": "dropbox", "mime_type": "text/plain", "size": "3
+        bytes"}'
+      Etag:
+      - 201705n
+      Pragma:
+      - public
+      Cache-Control:
+      - max-age=0
+      Access-Control-Allow-Origin:
+      - ! '*'
+    body:
+      encoding: US-ASCII
+      string: foo
+    http_version: 
+  recorded_at: Tue, 05 Feb 2013 17:44:22 GMT
+- request:
+    method: get
+    uri: https://api.dropbox.com/1/metadata/dropbox/test/abc.txt?
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - OAuth gem v0.4.7
+      Authorization:
+      - OAuth oauth_consumer_key="wncno17ygixgpy2", oauth_nonce="gOyj2ZrbU1FU7hy8MQP4GgWCvAHjLJEE92bD2CfCdA",
+        oauth_signature="%2FWtNT8lawrMTu7AUSY65xrM4XC0%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1360086262", oauth_token="930fjrsep84llr7", oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 05 Feb 2013 17:44:20 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Expose-Headers:
+      - X-Dropbox-Metadata, Accept-Ranges, Content-Range
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Frame-Options:
+      - SAMEORIGIN
+      Access-Control-Allow-Origin:
+      - ! '*'
+    body:
+      encoding: US-ASCII
+      string: ! '{"revision": 201705, "rev": "313e900a671c6", "thumb_exists": false,
+        "bytes": 3, "modified": "Fri, 01 Feb 2013 22:13:52 +0000", "client_mtime":
+        "Fri, 01 Feb 2013 22:13:50 +0000", "path": "/test/abc.txt", "is_dir": false,
+        "icon": "page_white_text", "root": "dropbox", "mime_type": "text/plain", "size":
+        "3 bytes"}'
+    http_version: 
+  recorded_at: Tue, 05 Feb 2013 17:44:23 GMT
+- request:
+    method: post
+    uri: https://api.dropbox.com/1/media/dropbox/test/abc.txt
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - OAuth gem v0.4.7
+      Content-Length:
+      - '0'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Authorization:
+      - OAuth oauth_consumer_key="wncno17ygixgpy2", oauth_nonce="0eKNduMT7Xu78n8q43IiWdTNNXsjqRKDmZO1KKWg",
+        oauth_signature="cEpuY4muU5cvuJDeWzXKDWUgXSs%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1360086263", oauth_token="930fjrsep84llr7", oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 05 Feb 2013 17:44:21 GMT
+      Content-Type:
+      - text/javascript
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Expose-Headers:
+      - X-Dropbox-Metadata, Accept-Ranges, Content-Range
+      Pragma:
+      - no-cache
+      Cache-Control:
+      - no-cache
+      X-Frame-Options:
+      - SAMEORIGIN
+      Access-Control-Allow-Origin:
+      - ! '*'
+    body:
+      encoding: US-ASCII
+      string: ! '{"url": "https://dl.dropbox.com/0/view/x8dwszaqm0c1cj1/test/abc.txt",
+        "expires": "Tue, 05 Feb 2013 21:44:21 +0000"}'
+    http_version: 
+  recorded_at: Tue, 05 Feb 2013 17:44:23 GMT
+- request:
+    method: get
+    uri: https://api-content.dropbox.com/1/files/dropbox/test/abc.txt?
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - ! '*/*'
+      User-Agent:
+      - OAuth gem v0.4.7
+      Authorization:
+      - OAuth oauth_consumer_key="wncno17ygixgpy2", oauth_nonce="UvkwvYx6u9vLuBJtzfoRihIg3HtOzhF3q1w7Xg3TL0",
+        oauth_signature="%2FRj%2F5myxRyNlEezFrmfnFrRGjdQ%3D", oauth_signature_method="HMAC-SHA1",
+        oauth_timestamp="1360086263", oauth_token="930fjrsep84llr7", oauth_version="1.0"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx/1.2.6
+      Date:
+      - Tue, 05 Feb 2013 17:44:21 GMT
+      Content-Type:
+      - text/plain; charset=ascii
+      Content-Length:
+      - '3'
+      Connection:
+      - keep-alive
+      Access-Control-Expose-Headers:
+      - X-Dropbox-Metadata, Accept-Ranges, Content-Range
+      Accept-Ranges:
+      - bytes
+      X-Dropbox-Metadata:
+      - ! '{"revision": 201705, "rev": "313e900a671c6", "thumb_exists": false, "bytes":
+        3, "modified": "Fri, 01 Feb 2013 22:13:52 +0000", "client_mtime": "Fri, 01
+        Feb 2013 22:13:50 +0000", "path": "/test/abc.txt", "is_dir": false, "icon":
+        "page_white_text", "root": "dropbox", "mime_type": "text/plain", "size": "3
+        bytes"}'
+      Etag:
+      - 201705n
+      Pragma:
+      - public
+      Cache-Control:
+      - max-age=0
+      Access-Control-Allow-Origin:
+      - ! '*'
+    body:
+      encoding: US-ASCII
+      string: foo
+    http_version: 
+  recorded_at: Tue, 05 Feb 2013 17:44:24 GMT
+recorded_with: VCR 2.4.0

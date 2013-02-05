@@ -16,7 +16,6 @@ module CloudFile
     end
 
     auth_value :access_token, :access_secret
-    
 
     def read(ops)
       raise NotImplementedError.new("read")
@@ -70,6 +69,11 @@ module CloudFile
         else
           self.location_params = args.flatten
         end
+      end
+
+      attr_accessor :uri_parser 
+      def uri_format(str)
+        CloudUri::Dsl.new(:service_class => self, :format => str).run!
       end
     end
 

@@ -1,0 +1,1 @@
+puts CloudFile.read("dropbox://test/abc.txt")

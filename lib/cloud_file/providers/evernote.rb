@@ -1,7 +1,8 @@
 module CloudFile
   class Evernote < Service
     register :provider => "evernote", :format => :evernote_html
-
+    uri_format ":notebook/:title"
+    
     fattr(:client) do
       EvernoteOAuth::Client.new(token: access_token)
     end

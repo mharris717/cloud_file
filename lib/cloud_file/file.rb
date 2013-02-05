@@ -12,12 +12,9 @@ module CloudFile
     attr_accessor :loc, :service
 
     def read
-      puts "about to read #{loc.inspect}"
       service.read(loc)
     end
     def write(val)
-      puts "about to right #{loc.inspect}"
-      puts "writing #{val}"
       service.write(loc,val)
     end
     def <<(*args)

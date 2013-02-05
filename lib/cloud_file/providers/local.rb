@@ -1,6 +1,8 @@
 module CloudFile
   class Local < Service
     register :provider => "local"
+    uri_format ":file"
+    
     def read(ops)
       ::File.read ops[:file]
     end

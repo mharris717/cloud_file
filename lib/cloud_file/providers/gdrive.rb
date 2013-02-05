@@ -1,8 +1,7 @@
 module CloudFile
   class Gdrive < Service
     register :provider => "google_oauth2", :format => :gdoc
-
-    location_params :title
+    uri_format ":title"
 
     fattr(:client) do
       GoogleDrive.login_with_oauth(access_token)

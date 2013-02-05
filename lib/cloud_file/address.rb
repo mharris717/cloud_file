@@ -19,6 +19,14 @@ module CloudFile
     end
 
     class << self
+      def parse(str)
+        raise "bad #{str}" unless str =~ /^(.+):\/\/(.+)$/
+        service_class = ::CloudFile::Services.service_class($1)
+        loc = service_class.uri_parser.parse(str)
+        provider = loc.delete('provider')
+
+        make(:provider => provider, :user => Tokens.user, :loc => loc)
+      end
       def make(ops)
         if ops[:loc]
           new(ops)
